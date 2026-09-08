@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Agatha Agnes | Portfólio</title>
+
+    <meta
+        name="description"
+        content="Portfólio pessoal de Agatha Agnes."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #f8f5f0;
+            color: #292522;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        /* =========================
+           CORES
+        ========================= */
+
+        :root {
+            --background: #f8f5f0;
+            --dark: #292522;
+            --brown: #76594c;
+            --pink: #d99a91;
+            --light-pink: #f1d7d1;
+            --cream: #fffaf5;
+            --line: #ddd4cc;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            padding: 22px 7%;
+            transition: 0.3s;
+        }
+
+        header.scrolled {
+            background: rgba(248, 245, 240, 0.92);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 25px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: var(--pink);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            width: 0;
+            height: 2px;
+            background: var(--pink);
+            position: absolute;
+            bottom: -7px;
+            left: 0;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-button {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            max-width: 1200px;
+            margin: auto;
+            padding: 150px 7% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-text {
+            max-width: 620px;
+        }
+
+        .small-title {
+            color: var(--pink);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: 0.95;
+            font-weight: 500;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 em {
+            color: var(--pink);
+            font-style: italic;
+        }
+
+        .hero-description {
+            color: #6e6660;
+            font-size: 17px;
+            line-height: 1.8;
+            max-width: 520px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--dark);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--pink);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--dark);
+            color: white;
+        }
+
+        /* =========================
+           HERO VISUAL
+        ========================= */
+
+        .hero-visual {
+            width: 390px;
+            height: 480px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .blob {
+            position: absolute;
+            width: 330px;
+            height: 410px;
+            right: 0;
+            top: 20px;
+            background: var(--light-pink);
+            border-radius: 50% 50% 45% 55%;
+            transform: rotate(7deg);
+        }
+
+        .profile-card {
+            position: absolute;
+            width: 270px;
+            height: 350px;
+            background: var(--brown);
+            right: 35px;
+            top: 60px;
+            border-radius: 140px 140px 25px 25px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: "AA";
+            font-family: "Playfair Display", serif;
+            font-size: 130px;
+            color: rgba(255,255,255,0.13);
+            position: absolute;
+            top: 70px;
+        }
+
+        .profile-initial {
+            font-family: "Playfair Display", serif;
+            font-size: 115px;
+            color: #f5e9df;
+            z-index: 2;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: white;
+            padding: 17px 22px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            left: 0;
+            bottom: 35px;
+            z-index: 5;
+        }
+
+        .floating-card strong {
+            display: block;
+            font-family: "Playfair Display", serif;
+            font-size: 20px;
+        }
+
+        .floating-card span {
+            color: #8b817a;
+            font-size: 12px;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        section {
+            padding: 110px 7%;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--pink);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(40px, 5vw, 65px);
+            font-weight: 500;
+            margin-bottom: 45px;
+        }
+
+        .about {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: #716963;
+            line-height: 1.9;
+            margin-bottom: 18px;
+        }
+
+        .about-highlight {
+            border-left: 3px solid var(--pink);
+            padding-left: 25px;
+            font-family: "Playfair Display", serif;
+            font-size: 26px;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 13px 20px;
+            border: 1px solid var(--line);
+            border-radius: 50px;
+            font-size: 14px;
+            transition: 0.3s;
+            background: white;
+        }
+
+        .skill:hover {
+            background: var(--pink);
+            color: white;
+            border-color: var(--pink);
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            background: var(--background);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            transition: 0.4s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.09);
+        }
+
+        .project-image {
+            height: 260px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project:nth-child(1) .project-image {
+            background: #d8c0b7;
+        }
+
+        .project:nth-child(2) .project-image {
+            background: #e8c8c8;
+        }
+
+        .project:nth-child(3) .project-image {
+            background: #c6d0c3;
+        }
+
+        .project:nth-child(4) .project-image {
+            background: #d9c8a9;
+        }
+
+        .project-number {
+            font-family: "Playfair Display", serif;
+            font-size: 100px;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content small {
+            color: var(--pink);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-content h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            margin: 8px 0;
+        }
+
+        .project-content p {
+            color: #77706b;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .project-link {
+            font-size: 13px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--dark);
+            padding-bottom: 3px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-label {
+            color: var(--pink);
+        }
+
+        .contact h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(45px, 7vw, 85px);
+            font-weight: 500;
+            line-height: 1;
+            margin-bottom: 30px;
+        }
+
+        .contact p {
+            color: #bcb5af;
+            max-width: 520px;
+            margin: auto auto 30px;
+            line-height: 1.8;
+        }
+
+        .email {
+            display: inline-block;
+            color: white;
+            font-size: 18px;
+            border-bottom: 1px solid var(--pink);
+            padding-bottom: 8px;
+            margin-bottom: 35px;
+        }
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social {
+            border: 1px solid #55504c;
+            padding: 11px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .social:hover {
+            background: var(--pink);
+            border-color: var(--pink);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: var(--dark);
+            color: #8d8782;
+            border-top: 1px solid #403c39;
+            text-align: center;
+            padding: 25px;
+            font-size: 12px;
+        }
+
+        /* =========================
+           ANIMAÇÕES
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 75px;
+                right: 7%;
+                background: white;
+                padding: 25px;
+                border-radius: 15px;
+                box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 130px;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                transform: scale(0.85);
+                margin-top: -30px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .hero {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .hero-visual {
+                transform: scale(0.68);
+                margin-top: -80px;
+                margin-bottom: -70px;
+            }
+
+            .about-highlight {
+                font-size: 22px;
+            }
+
+            .project-image {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU
+    ========================== -->
+
+    <header id="header">
+
+        <nav>
+
+            <a href="#inicio" class="logo">
+                Agatha<span>.</span>
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+
+            <button class="menu-button" id="menuButton">
+                ☰
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-text reveal">
+
+                <p class="small-title">
+                    Portfólio pessoal
+                </p>
+
+                <h1>
+                    Olá, eu sou<br>
+                    <em>Agatha.</em>
+                </h1>
+
+                <p class="hero-description">
+                    Sou uma pessoa apaixonada por tecnologia,
+                    criatividade e pela possibilidade de transformar
+                    ideias em projetos digitais.
+                </p>
+
+                <div class="buttons">
+
+                    <a href="#projetos" class="btn btn-primary">
+                        Ver meus projetos
+                    </a>
+
+                    <a href="#contato" class="btn btn-outline">
+                        Fale comigo
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-visual reveal">
+
+                <div class="blob"></div>
+
+                <div class="profile-card">
+                    <span class="profile-initial">A</span>
+                </div>
+
+                <div class="floating-card">
+                    <strong>Agatha Agnes</strong>
+                    <span>Creative & Technology</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section class="about" id="sobre">
+
+            <div class="section-container">
+
+                <p class="section-label reveal">
+                    Sobre mim
+                </p>
+
+                <h2 class="section-title reveal">
+                    Um pouco sobre<br>
+                    quem eu sou.
+                </h2>
+
+                <div class="about-grid">
+
+                    <div class="about-text reveal">
+
+                        <p>
+                            Meu nome é <strong>Agatha Agnes</strong>.
+                            Este portfólio foi criado para apresentar
+                            um pouco sobre mim, meus conhecimentos e
+                            os projetos que desenvolvo.
+                        </p>
+
+                        <p>
+                            Acredito que tecnologia e criatividade podem
+                            caminhar juntas para criar experiências
+                            bonitas, funcionais e que realmente façam
+                            sentido para as pessoas.
+                        </p>
+
+                        <p>
+                            Estou sempre buscando aprender coisas novas,
+                            experimentar ideias diferentes e evoluir
+                            cada vez mais.
+                        </p>
+
+                    </div>
+
+                    <div class="about-highlight reveal">
+                        “Transformar uma ideia em algo real é uma das
+                        partes mais incríveis de criar.”
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             HABILIDADES
+        ========================== -->
+
+        <section>
+
+            <div class="section-container">
+
+                <p class="section-label reveal">
+                    Conhecimentos
+                </p>
+
+                <h2 class="section-title reveal">
+                    O que estou<br>
+                    aprendendo.
+                </h2>
+
+                <div class="skills reveal">
+
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">Git</span>
+                    <span class="skill">GitHub</span>
+                    <span class="skill">Design</span>
+                    <span class="skill">UI / UX</span>
+                    <span class="skill">Criatividade</span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJETOS
+        ========================== -->
+
+        <section class="projects" id="projetos">
+
+            <div class="section-container">
+
+                <p class="section-label reveal">
+                    Meu trabalho
+                </p>
+
+                <h2 class="section-title reveal">
+                    Projetos que<br>
+                    representam minha jornada.
+                </h2>
+
+
+                <div class="projects-grid">
+
+
+                    <article class="project reveal">
+
+                        <div class="project-image">
+                            <span class="project-number">01</span>
+                        </div>
+
+                        <div class="project-content">
+
+                            <small>Projeto 01</small>
+
+                            <h3>Landing Page</h3>
+
+                            <p>
+                                Uma página moderna e responsiva
+                                desenvolvida utilizando HTML e CSS.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver projeto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project reveal">
+
+                        <div class="project-image">
+                            <span class="project-number">02</span>
+                        </div>
+
+                        <div class="project-content">
+
+                            <small>Projeto 02</small>
+
+                            <h3>Projeto Criativo</h3>
+
+                            <p>
+                                Uma experiência digital criada para
+                                explorar design, cores e interação.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver projeto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project reveal">
+
+                        <div class="project-image">
+                            <span class="project-number">03</span>
+                        </div>
+
+                        <div class="project-content">
+
+                            <small>Projeto 03</small>
+
+                            <h3>Experiência Web</h3>
+
+                            <p>
+                                Interface responsiva com foco em
+                                usabilidade e apresentação visual.
+                            </p>
+
+                            <a href="#" class="project-link">
+                                Ver projeto →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="project reveal">
+
+                        <div class="project-image">
+                            <span class="project-number">04</span>
+                        </div>
+
+                        <div class="project-content">
+
+                            <small>Projeto 04</small>
+
+                            <h3>Em breve</h3>
+
+                            <p>
+                                Novos projetos e experiências serão
+                                adicionados aqui em breve.
+                            </p>
+
+                            <a href="#contato" class="project-link">
+                                Acompanhar →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CONTATO
+        ========================== -->
+
+        <section class="contact" id="contato">
+
+            <div class="section-container reveal">
+
+                <p class="section-label">
+                    Vamos conversar?
+                </p>
+
+                <h2>
+                    Tem uma ideia?<br>
+                    <em>Vamos criar.</em>
+                </h2>
+
+                <p>
+                    Se quiser entrar em contato comigo, você pode
+                    enviar uma mensagem através do meu e-mail.
+                </p>
+
+                <a
+                    href="mailto:agathaagnes675@gmail.com"
+                    class="email"
+                >
+                    agathaagnes675@gmail.com
+                </a>
+
+                <div class="socials">
+
+                    <a
+                        href="https://github.com/"
+                        target="_blank"
+                        class="social"
+                    >
+                        GitHub
+                    </a>
+
+                    <a
+                        href="mailto:agathaagnes675@gmail.com"
+                        class="social"
+                    >
+                        E-mail
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        © 2026 Agatha Agnes · Feito com criatividade e código.
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        const header = document.getElementById("header");
+        const menuButton = document.getElementById("menuButton");
+        const navLinks = document.getElementById("navLinks");
+
+        /* Header ao rolar */
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* Menu mobile */
+
+        menuButton.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Fechar menu ao clicar */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+
+
+        /* Animações */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer = new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("active");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.15
+            }
+
+        );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
